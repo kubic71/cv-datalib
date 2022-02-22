@@ -1,4 +1,6 @@
 from PIL import Image
+from typing import List
+from annotation import Annotation
 
 class DataImage:
     """
@@ -8,7 +10,7 @@ class DataImage:
     It is then passed to the transformation pipeline, after which the whole dataset is exported to the output format.
     """
 
-    def __init__(self, image_path: str, annotations: list, image_size: tuple = None):
+    def __init__(self, image_path: str, annotations: List[Annotation], image_size: tuple = None):
         self.image_path = image_path
         self.annotations = annotations
         self.image_size = image_size
@@ -24,8 +26,5 @@ class DataImage:
     def read_image(self):
         return Image.open(self.image_path)
 
-
     def filename(self):
         return self.image_path.split('/')[-1]
-
-

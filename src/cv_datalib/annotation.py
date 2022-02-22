@@ -1,6 +1,14 @@
 # import some utils
+from abc import ABC, abstractmethod
 
-class BboxAnnotation:
+class Annotation(ABC):
+    @abstractmethod
+    def __init__(self):
+        pass
+
+
+
+class BboxAnnotation(Annotation):
     def __init__(self, category, x, y, w, h):
         self.category = category
 
@@ -19,7 +27,7 @@ class BboxAnnotation:
     def __repr__(self):
         return self.__str__()
 
-class PolygonAnnotation:
+class PolygonAnnotation(Annotation):
     def __init__(self, category, points):
         # TODO: allow multiple polygons for single annotation
         self.category = category

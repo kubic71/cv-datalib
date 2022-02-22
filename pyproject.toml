@@ -3,4 +3,11 @@ requires = [
     "setuptools>=42",
     "wheel"
 ]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = [
+    "tests",  # You should have a "tests" directory
+]
+
 build-backend = "setuptools.build_meta"
